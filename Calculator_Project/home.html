@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Project</title>
+    
+    <!-- Styles of the Prject -->
+    <style>
+      body {
+        background-color: #081a30;
+        margin-top: 110px;
+      }
+
+      h1 {
+        color: #4a6488;
+        text-shadow: 3px 5px 5px rgba(172, 225, 53, 0.2);
+        font-size: 45px;
+      }
+      input {
+        width: 55px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        height: 55px;
+        font-size: 25px;
+        font-weight: 700;
+        border-radius: 15px;
+        border: 1px solid #52596e;
+        background-color: #52596e;
+        box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.2);
+      }
+      #display {
+        font-size: large;
+        background-color: #b2b4cb;
+        height: 35px;
+        width: 235px;
+        padding: 5px;
+        text-align: right;
+        font-size: 25px;
+        margin-top: 10px;
+        padding-top: 5px;
+        border-radius: 10px;
+        font-weight: 700;
+      }
+
+      #main {
+        align-items: center;
+        background-color: #0a203b;
+        width: 400px;
+        height: 550px;
+        padding: 5px;
+        border-radius: 55px;
+        box-shadow: 5px 5px 7px rgba(3, 3, 3, 0.4);
+      }
+      input:hover {
+        background-color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <div id="main">
+        <h1>Calculator</h1>
+        <div>
+          <p id="display" disabled></p>
+          <input
+            type="button"
+            value="C"
+            onclick="clearDisplay()"
+            style="background-color: #bc85fc"
+          />
+          <input
+            type="button"
+            value="00"
+            onclick="enterNumber('00')"
+            style="background-color: #bc85fc"
+          />
+          <input
+            type="button"
+            value="%"
+            onclick="calNumber('%')"
+            style="background-color: #bc85fc"
+          />
+          <input
+            type="button"
+            value="X"
+            onclick="calNumber('*') "
+            style="background-color: #ff9d06"
+          /><br />
+          <input type="button" value="7" onclick=" enterNumber('7')" />
+          <input type="button" value="8" onclick="enterNumber('8')" />
+          <input type="button" value="9" onclick="enterNumber('9')" />
+          <input
+            type="button"
+            value="/"
+            onclick="calNumber('/')"
+            style="background-color: #ff9d06"
+          /><br />
+          <input type="button" value="4" onclick="enterNumber('4')" />
+          <input type="button" value="5" onclick="enterNumber('5')" />
+          <input type="button" value="6" onclick="enterNumber('6')" />
+          <input
+            type="button"
+            value="-"
+            onclick="calNumber('-')"
+            style="background-color: #ff9d06"
+          /><br />
+          <input type="button" value="1" onclick="enterNumber('1')" />
+          <input type="button" value="2" onclick="enterNumber('2')" />
+          <input type="button" value="3" onclick="enterNumber('3')" />
+          <input
+            type="button"
+            value="+"
+            onclick="calNumber('+')"
+            style="background-color: #ff9d06"
+          /><br />
+          <input
+            type="button"
+            value="0"
+            onclick="enterNumber('0')"
+            style="width: 125px"
+          />
+          <input type="button" value="." onclick="calNumber('.')" />
+          <input
+            type="button"
+            value="="
+            onclick="finalNumber()"
+            style="background-color: #ff9d06"
+          /><br />
+        </div>
+      </div>
+    </center>
+
+<!-- Function of the Calculaator-->
+    <script>
+      let input = 0;
+      input = document.getElementById("display");
+
+      function clearDisplay() {
+        input.innerHTML = " ";
+      }
+      function calNumber(x) {
+        input.innerHTML += x;
+      }
+      function enterNumber(x) {
+        input.innerHTML += x;
+      }
+      function finalNumber() {
+        try {
+          input.innerHTML = eval(input.innerHTML);
+        } catch (error) {
+          input.innerHTML = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>
